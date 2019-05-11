@@ -1,0 +1,401 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAFD56FB22875EFB0075ACDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD56FA22875EFB0075ACDB /* AppDelegate.swift */; };
+		AAFD570122875EFB0075ACDB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD570022875EFB0075ACDB /* GameScene.swift */; };
+		AAFD570322875EFB0075ACDB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD570222875EFB0075ACDB /* GameViewController.swift */; };
+		AAFD570622875EFB0075ACDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAFD570422875EFB0075ACDB /* Main.storyboard */; };
+		AAFD570822875EFC0075ACDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAFD570722875EFC0075ACDB /* Assets.xcassets */; };
+		AAFD570B22875EFC0075ACDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAFD570922875EFC0075ACDB /* LaunchScreen.storyboard */; };
+		AAFD5713228766B40075ACDB /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = AAFD5712228766B40075ACDB /* GameScene.sks */; };
+		AAFD57152287671B0075ACDB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD57142287671B0075ACDB /* Player.swift */; };
+		AAFD5717228767750075ACDB /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD5716228767750075ACDB /* Score.swift */; };
+		AAFD5719228768870075ACDB /* TurtleImages.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AAFD5718228768860075ACDB /* TurtleImages.atlas */; };
+		AAFD571E228770120075ACDB /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD571D228770120075ACDB /* road.png */; };
+		AAFD5724228774E10075ACDB /* pink-car.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD5721228774E10075ACDB /* pink-car.png */; };
+		AAFD5725228774E10075ACDB /* purple-car.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD5722228774E10075ACDB /* purple-car.png */; };
+		AAFD5726228774E10075ACDB /* yellow-car.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD5723228774E10075ACDB /* yellow-car.png */; };
+		AAFD5728228774F20075ACDB /* blue-car.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD5727228774F20075ACDB /* blue-car.png */; };
+		AAFD572A22877B8B0075ACDB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD572922877B8B0075ACDB /* Extensions.swift */; };
+		AAFD572C22877B920075ACDB /* GeneticAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD572B22877B920075ACDB /* GeneticAlgorithm.swift */; };
+		AAFD572E22878BA40075ACDB /* gameover.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD572D22878BA40075ACDB /* gameover.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AAFD56F722875EFB0075ACDB /* LearnToDodge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnToDodge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAFD56FA22875EFB0075ACDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AAFD570022875EFB0075ACDB /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		AAFD570222875EFB0075ACDB /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		AAFD570522875EFB0075ACDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AAFD570722875EFC0075ACDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAFD570A22875EFC0075ACDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AAFD570C22875EFC0075ACDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAFD5712228766B40075ACDB /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		AAFD57142287671B0075ACDB /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		AAFD5716228767750075ACDB /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		AAFD5718228768860075ACDB /* TurtleImages.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = TurtleImages.atlas; sourceTree = "<group>"; };
+		AAFD571D228770120075ACDB /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
+		AAFD5721228774E10075ACDB /* pink-car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink-car.png"; sourceTree = "<group>"; };
+		AAFD5722228774E10075ACDB /* purple-car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purple-car.png"; sourceTree = "<group>"; };
+		AAFD5723228774E10075ACDB /* yellow-car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellow-car.png"; sourceTree = "<group>"; };
+		AAFD5727228774F20075ACDB /* blue-car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-car.png"; sourceTree = "<group>"; };
+		AAFD572922877B8B0075ACDB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AAFD572B22877B920075ACDB /* GeneticAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneticAlgorithm.swift; sourceTree = "<group>"; };
+		AAFD572D22878BA40075ACDB /* gameover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameover.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAFD56F422875EFB0075ACDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAFD56EE22875EFB0075ACDB = {
+			isa = PBXGroup;
+			children = (
+				AAFD56F922875EFB0075ACDB /* LearnToDodge */,
+				AAFD56F822875EFB0075ACDB /* Products */,
+				AAFD571A22876BAF0075ACDB /* Content */,
+			);
+			sourceTree = "<group>";
+		};
+		AAFD56F822875EFB0075ACDB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD56F722875EFB0075ACDB /* LearnToDodge.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAFD56F922875EFB0075ACDB /* LearnToDodge */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD56FA22875EFB0075ACDB /* AppDelegate.swift */,
+				AAFD570022875EFB0075ACDB /* GameScene.swift */,
+				AAFD570222875EFB0075ACDB /* GameViewController.swift */,
+				AAFD5712228766B40075ACDB /* GameScene.sks */,
+				AAFD57142287671B0075ACDB /* Player.swift */,
+				AAFD5716228767750075ACDB /* Score.swift */,
+				AAFD570422875EFB0075ACDB /* Main.storyboard */,
+				AAFD570722875EFC0075ACDB /* Assets.xcassets */,
+				AAFD570922875EFC0075ACDB /* LaunchScreen.storyboard */,
+				AAFD570C22875EFC0075ACDB /* Info.plist */,
+				AAFD572922877B8B0075ACDB /* Extensions.swift */,
+				AAFD572B22877B920075ACDB /* GeneticAlgorithm.swift */,
+			);
+			path = LearnToDodge;
+			sourceTree = "<group>";
+		};
+		AAFD571A22876BAF0075ACDB /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD571D228770120075ACDB /* road.png */,
+				AAFD5718228768860075ACDB /* TurtleImages.atlas */,
+				AAFD5722228774E10075ACDB /* purple-car.png */,
+				AAFD5721228774E10075ACDB /* pink-car.png */,
+				AAFD5723228774E10075ACDB /* yellow-car.png */,
+				AAFD5727228774F20075ACDB /* blue-car.png */,
+				AAFD572D22878BA40075ACDB /* gameover.png */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAFD56F622875EFB0075ACDB /* LearnToDodge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAFD570F22875EFC0075ACDB /* Build configuration list for PBXNativeTarget "LearnToDodge" */;
+			buildPhases = (
+				AAFD56F322875EFB0075ACDB /* Sources */,
+				AAFD56F422875EFB0075ACDB /* Frameworks */,
+				AAFD56F522875EFB0075ACDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LearnToDodge;
+			productName = LearnToDodge;
+			productReference = AAFD56F722875EFB0075ACDB /* LearnToDodge.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAFD56EF22875EFB0075ACDB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = DanielSteven;
+				TargetAttributes = {
+					AAFD56F622875EFB0075ACDB = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = AAFD56F222875EFB0075ACDB /* Build configuration list for PBXProject "LearnToDodge" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAFD56EE22875EFB0075ACDB;
+			productRefGroup = AAFD56F822875EFB0075ACDB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAFD56F622875EFB0075ACDB /* LearnToDodge */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAFD56F522875EFB0075ACDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAFD5726228774E10075ACDB /* yellow-car.png in Resources */,
+				AAFD5728228774F20075ACDB /* blue-car.png in Resources */,
+				AAFD5719228768870075ACDB /* TurtleImages.atlas in Resources */,
+				AAFD5713228766B40075ACDB /* GameScene.sks in Resources */,
+				AAFD5724228774E10075ACDB /* pink-car.png in Resources */,
+				AAFD570622875EFB0075ACDB /* Main.storyboard in Resources */,
+				AAFD570822875EFC0075ACDB /* Assets.xcassets in Resources */,
+				AAFD570B22875EFC0075ACDB /* LaunchScreen.storyboard in Resources */,
+				AAFD571E228770120075ACDB /* road.png in Resources */,
+				AAFD5725228774E10075ACDB /* purple-car.png in Resources */,
+				AAFD572E22878BA40075ACDB /* gameover.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAFD56F322875EFB0075ACDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAFD57152287671B0075ACDB /* Player.swift in Sources */,
+				AAFD572A22877B8B0075ACDB /* Extensions.swift in Sources */,
+				AAFD570122875EFB0075ACDB /* GameScene.swift in Sources */,
+				AAFD570322875EFB0075ACDB /* GameViewController.swift in Sources */,
+				AAFD56FB22875EFB0075ACDB /* AppDelegate.swift in Sources */,
+				AAFD572C22877B920075ACDB /* GeneticAlgorithm.swift in Sources */,
+				AAFD5717228767750075ACDB /* Score.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AAFD570422875EFB0075ACDB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAFD570522875EFB0075ACDB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AAFD570922875EFC0075ACDB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAFD570A22875EFC0075ACDB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAFD570D22875EFC0075ACDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AAFD570E22875EFC0075ACDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AAFD571022875EFC0075ACDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZ62TX5ZW3;
+				INFOPLIST_FILE = LearnToDodge/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stevens.LearnToDodge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AAFD571122875EFC0075ACDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZ62TX5ZW3;
+				INFOPLIST_FILE = LearnToDodge/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stevens.LearnToDodge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAFD56F222875EFB0075ACDB /* Build configuration list for PBXProject "LearnToDodge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAFD570D22875EFC0075ACDB /* Debug */,
+				AAFD570E22875EFC0075ACDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAFD570F22875EFC0075ACDB /* Build configuration list for PBXNativeTarget "LearnToDodge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAFD571022875EFC0075ACDB /* Debug */,
+				AAFD571122875EFC0075ACDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAFD56EF22875EFB0075ACDB /* Project object */;
+}
