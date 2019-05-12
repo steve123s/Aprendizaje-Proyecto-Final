@@ -3,9 +3,9 @@ import Foundation
 public typealias Fitness = Int
 
 public final class Individual {
-    public let number: UInt
+    public let number: UInt16
 
-    init(number: UInt) {
+    init(number: UInt16) {
         self.number = number
     }
 }
@@ -14,7 +14,7 @@ public final class Individual {
 public final class GeneticAlgorithm {
     private static let percentageOfPopulationToDieEachGeneration = 95
 
-    public let numberToSolve: UInt
+    public let numberToSolve: UInt16
     public let populationSize: Int
 
     // Always sorted by decreasing fitness
@@ -22,7 +22,7 @@ public final class GeneticAlgorithm {
 
     public private(set) var generationNumber = 0
 
-    public init(numberToSolve: UInt, populationSize: Int) {
+    public init(numberToSolve: UInt16, populationSize: Int) {
         self.numberToSolve = numberToSolve
         self.populationSize = populationSize
 
@@ -34,7 +34,7 @@ public final class GeneticAlgorithm {
     }
 
     public var solved: Bool {
-        return self.population.first!.fitness(towards: self.numberToSolve) == UInt.numberOfBits
+        return self.population.first!.fitness(towards: self.numberToSolve) == UInt16.numberOfBits
     }
 
     public func runGeneration() {
@@ -55,7 +55,7 @@ public final class GeneticAlgorithm {
 }
 
 extension Individual {
-    public func fitness(towards goal: UInt) -> Fitness {
+    public func fitness(towards goal: UInt16) -> Fitness {
         return Fitness(self.number.numberOfBitsEqual(in: goal))
     }
 }
@@ -70,6 +70,6 @@ extension Individual {
             return shouldMutate ? !bit : bit
         }
         
-        return Individual(number: UInt(bits: mutatedBits))
+        return Individual(number: UInt16(bits: mutatedBits))
     }
 }

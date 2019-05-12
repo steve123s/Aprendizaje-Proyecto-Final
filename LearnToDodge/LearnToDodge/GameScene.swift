@@ -21,8 +21,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case right = 75
     }
     
-    //let goal: UInt = UInt.subtractWithOverflow(0, 1).0
-    let goal: UInt = 467351
+    //let goal: UInt16 = UInt16.subtractWithOverflow(0, 1).0
+    let goal: UInt16 = 7351
     let populationSize = 100
     
     var canRestart = false
@@ -219,7 +219,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         let bestIndividual = algorithm.population.first!
         let fitness = bestIndividual.fitness(towards: goal)
-        let fitnessPercentage = Int(Double(fitness) / Double(UInt.numberOfBits) * 100)
+        let fitnessPercentage = Int(Double(fitness) / 16 * 100)
         
         print("Fittest individual:\t \(bestIndividual.number.asBinaryString) (fitness: \(fitnessPercentage)%)")
         

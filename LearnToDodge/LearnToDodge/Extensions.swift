@@ -1,8 +1,8 @@
 import Foundation
 
-extension UInt {
+extension UInt16 {
     init(randomIn range: CountableClosedRange<Int>) {
-        self = UInt(arc4random_uniform(UInt32(range.upperBound - range.lowerBound))) + UInt(range.lowerBound)
+        self = UInt16(arc4random_uniform(UInt32(UInt16(range.upperBound - range.lowerBound)))) + UInt16(range.lowerBound)
     }
 }
 
@@ -10,18 +10,18 @@ extension Bool {
     static func random(likelyHoodPercentage: Int = 50) -> Bool {
         precondition(likelyHoodPercentage >= 0 && likelyHoodPercentage <= 100)
 
-        return UInt(likelyHoodPercentage) >= UInt(randomIn: 1...100)
+        return UInt16(likelyHoodPercentage) >= UInt16(randomIn: 1...100)
     }
 }
 
-extension UInt {
+extension UInt16 {
     init(bits: [Bool]) {
-        var number: UInt = 0
-        var exponent: UInt = 0
+        var number: UInt16 = 0
+        var exponent: UInt16 = 0
 
         for bit in bits.reversed() {
-            let bitValue: UInt = bit ? 1 : 0
-            number += bitValue * UInt(pow(2, Float(exponent)))
+            let bitValue: UInt16 = bit ? 1 : 0
+            number += bitValue * UInt16(pow(2, Float(exponent)))
 
             exponent += 1
         }
@@ -44,15 +44,15 @@ extension UInt {
         return count
     }
 
-    var lastBit: UInt {
+    var lastBit: UInt16 {
         return self & 1
     }
 
     public static var numberOfBits: Int {
-        return Int(log2(Double(UInt.max)))
+        return Int(log2(Double(UInt16.max)))
     }
 
-    func numberOfBitsEqual(in number: UInt) -> Int {
+    func numberOfBitsEqual(in number: UInt16) -> Int {
         var count: Int = 0
 
         for (lhs, rhs) in zip(self.bits, number.bits) {
@@ -68,7 +68,7 @@ extension UInt {
         var bits: [Bool] = []
 
         var number = self
-        var allOnes = UInt.max
+        var allOnes = UInt16.max
 
         while allOnes > 0 {
             let newBit: Bool
