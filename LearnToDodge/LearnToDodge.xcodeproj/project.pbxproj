@@ -19,17 +19,24 @@
 		AAFD5719228768870075ACDB /* TurtleImages.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AAFD5718228768860075ACDB /* TurtleImages.atlas */; };
 		AAFD571E228770120075ACDB /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD571D228770120075ACDB /* road.png */; };
 		AAFD5724228774E10075ACDB /* pink-car.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD5721228774E10075ACDB /* pink-car.png */; };
-		AAFD5725228774E10075ACDB /* purple-car.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD5722228774E10075ACDB /* purple-car.png */; };
 		AAFD5726228774E10075ACDB /* yellow-car.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD5723228774E10075ACDB /* yellow-car.png */; };
-		AAFD5728228774F20075ACDB /* blue-car.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD5727228774F20075ACDB /* blue-car.png */; };
 		AAFD572A22877B8B0075ACDB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD572922877B8B0075ACDB /* Extensions.swift */; };
 		AAFD572C22877B920075ACDB /* GeneticAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD572B22877B920075ACDB /* GeneticAlgorithm.swift */; };
-		AAFD572E22878BA40075ACDB /* gameover.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD572D22878BA40075ACDB /* gameover.png */; };
 		AAFD57302287A54A0075ACDB /* FirstScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD572F2287A54A0075ACDB /* FirstScene.swift */; };
 		AAFD57332287A55E0075ACDB /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD57312287A55E0075ACDB /* PlayButton.swift */; };
 		AAFD57342287A55E0075ACDB /* AboutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD57322287A55E0075ACDB /* AboutButton.swift */; };
 		AAFD57362287A6490075ACDB /* FirstScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = AAFD57352287A6490075ACDB /* FirstScene.sks */; };
-		AAFD57382287A7A00075ACDB /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD57372287A79F0075ACDB /* playButton.png */; };
+		AAFD573F2287BD710075ACDB /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD57392287BD710075ACDB /* title.png */; };
+		AAFD57402287BD710075ACDB /* button-play.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD573A2287BD710075ACDB /* button-play.png */; };
+		AAFD57412287BD710075ACDB /* button-play2.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD573B2287BD710075ACDB /* button-play2.png */; };
+		AAFD57422287BD710075ACDB /* subtitle.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD573C2287BD710075ACDB /* subtitle.png */; };
+		AAFD57432287BD710075ACDB /* button-about.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD573D2287BD710075ACDB /* button-about.png */; };
+		AAFD57442287BD710075ACDB /* button-options.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD573E2287BD710075ACDB /* button-options.png */; };
+		AAFD57492287C4B00075ACDB /* button-try-again.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD57452287C4AF0075ACDB /* button-try-again.png */; };
+		AAFD574A2287C4B00075ACDB /* you-win.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD57462287C4B00075ACDB /* you-win.png */; };
+		AAFD574B2287C4B00075ACDB /* button-to-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD57472287C4B00075ACDB /* button-to-menu.png */; };
+		AAFD574C2287C4B00075ACDB /* oops.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD57482287C4B00075ACDB /* oops.png */; };
+		AAFD574E2287C8660075ACDB /* button-next-level.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD574D2287C8660075ACDB /* button-next-level.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,17 +54,24 @@
 		AAFD5718228768860075ACDB /* TurtleImages.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = TurtleImages.atlas; sourceTree = "<group>"; };
 		AAFD571D228770120075ACDB /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
 		AAFD5721228774E10075ACDB /* pink-car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink-car.png"; sourceTree = "<group>"; };
-		AAFD5722228774E10075ACDB /* purple-car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purple-car.png"; sourceTree = "<group>"; };
 		AAFD5723228774E10075ACDB /* yellow-car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellow-car.png"; sourceTree = "<group>"; };
-		AAFD5727228774F20075ACDB /* blue-car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-car.png"; sourceTree = "<group>"; };
 		AAFD572922877B8B0075ACDB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AAFD572B22877B920075ACDB /* GeneticAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneticAlgorithm.swift; sourceTree = "<group>"; };
-		AAFD572D22878BA40075ACDB /* gameover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameover.png; sourceTree = "<group>"; };
 		AAFD572F2287A54A0075ACDB /* FirstScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstScene.swift; sourceTree = "<group>"; };
 		AAFD57312287A55E0075ACDB /* PlayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		AAFD57322287A55E0075ACDB /* AboutButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutButton.swift; sourceTree = "<group>"; };
 		AAFD57352287A6490075ACDB /* FirstScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FirstScene.sks; sourceTree = "<group>"; };
-		AAFD57372287A79F0075ACDB /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playButton.png; sourceTree = "<group>"; };
+		AAFD57392287BD710075ACDB /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
+		AAFD573A2287BD710075ACDB /* button-play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-play.png"; sourceTree = "<group>"; };
+		AAFD573B2287BD710075ACDB /* button-play2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-play2.png"; sourceTree = "<group>"; };
+		AAFD573C2287BD710075ACDB /* subtitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = subtitle.png; sourceTree = "<group>"; };
+		AAFD573D2287BD710075ACDB /* button-about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-about.png"; sourceTree = "<group>"; };
+		AAFD573E2287BD710075ACDB /* button-options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-options.png"; sourceTree = "<group>"; };
+		AAFD57452287C4AF0075ACDB /* button-try-again.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-try-again.png"; sourceTree = "<group>"; };
+		AAFD57462287C4B00075ACDB /* you-win.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "you-win.png"; sourceTree = "<group>"; };
+		AAFD57472287C4B00075ACDB /* button-to-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-to-menu.png"; sourceTree = "<group>"; };
+		AAFD57482287C4B00075ACDB /* oops.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oops.png; sourceTree = "<group>"; };
+		AAFD574D2287C8660075ACDB /* button-next-level.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-next-level.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,12 +130,19 @@
 			children = (
 				AAFD571D228770120075ACDB /* road.png */,
 				AAFD5718228768860075ACDB /* TurtleImages.atlas */,
-				AAFD5722228774E10075ACDB /* purple-car.png */,
 				AAFD5721228774E10075ACDB /* pink-car.png */,
 				AAFD5723228774E10075ACDB /* yellow-car.png */,
-				AAFD5727228774F20075ACDB /* blue-car.png */,
-				AAFD572D22878BA40075ACDB /* gameover.png */,
-				AAFD57372287A79F0075ACDB /* playButton.png */,
+				AAFD574D2287C8660075ACDB /* button-next-level.png */,
+				AAFD573D2287BD710075ACDB /* button-about.png */,
+				AAFD573B2287BD710075ACDB /* button-play2.png */,
+				AAFD573E2287BD710075ACDB /* button-options.png */,
+				AAFD573A2287BD710075ACDB /* button-play.png */,
+				AAFD57392287BD710075ACDB /* title.png */,
+				AAFD573C2287BD710075ACDB /* subtitle.png */,
+				AAFD57472287C4B00075ACDB /* button-to-menu.png */,
+				AAFD57452287C4AF0075ACDB /* button-try-again.png */,
+				AAFD57482287C4B00075ACDB /* oops.png */,
+				AAFD57462287C4B00075ACDB /* you-win.png */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -184,18 +205,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAFD57382287A7A00075ACDB /* playButton.png in Resources */,
+				AAFD574C2287C4B00075ACDB /* oops.png in Resources */,
+				AAFD57432287BD710075ACDB /* button-about.png in Resources */,
 				AAFD5726228774E10075ACDB /* yellow-car.png in Resources */,
-				AAFD5728228774F20075ACDB /* blue-car.png in Resources */,
 				AAFD5719228768870075ACDB /* TurtleImages.atlas in Resources */,
+				AAFD57402287BD710075ACDB /* button-play.png in Resources */,
 				AAFD5713228766B40075ACDB /* GameScene.sks in Resources */,
+				AAFD574A2287C4B00075ACDB /* you-win.png in Resources */,
 				AAFD5724228774E10075ACDB /* pink-car.png in Resources */,
 				AAFD570622875EFB0075ACDB /* Main.storyboard in Resources */,
+				AAFD57422287BD710075ACDB /* subtitle.png in Resources */,
 				AAFD570822875EFC0075ACDB /* Assets.xcassets in Resources */,
 				AAFD570B22875EFC0075ACDB /* LaunchScreen.storyboard in Resources */,
+				AAFD57442287BD710075ACDB /* button-options.png in Resources */,
+				AAFD574B2287C4B00075ACDB /* button-to-menu.png in Resources */,
 				AAFD571E228770120075ACDB /* road.png in Resources */,
-				AAFD5725228774E10075ACDB /* purple-car.png in Resources */,
-				AAFD572E22878BA40075ACDB /* gameover.png in Resources */,
+				AAFD57492287C4B00075ACDB /* button-try-again.png in Resources */,
+				AAFD57412287BD710075ACDB /* button-play2.png in Resources */,
+				AAFD574E2287C8660075ACDB /* button-next-level.png in Resources */,
+				AAFD573F2287BD710075ACDB /* title.png in Resources */,
 				AAFD57362287A6490075ACDB /* FirstScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +393,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NZ62TX5ZW3;
 				INFOPLIST_FILE = LearnToDodge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,6 +412,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NZ62TX5ZW3;
 				INFOPLIST_FILE = LearnToDodge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

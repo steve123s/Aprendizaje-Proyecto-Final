@@ -179,23 +179,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if isAutomatic {
             algorithm.runGeneration()
             gameCanRestart()
+            reset()
             return
         }
         
-        let background = SKSpriteNode(imageNamed: "gameover")
-        background.position = CGPoint(x: screenWidth/2, y: screenHeight/2+screenHeight/10)
-        background.zPosition = 30
-        addChild(background)
+        let title = SKSpriteNode(imageNamed: "oops.png")
+        title.zPosition = 2
+        title.setScale(2.0)
+        title.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.8)
+        title.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: title.frame.width * 1.25 , height: title.frame.height * 1.25))
+        title.physicsBody?.isDynamic = false
+        self.addChild(title)
         
+        let button = AboutButton(texture: SKTexture(imageNamed: "button-to-menu"))
+        button.name = "button-to-menu"
+        button.setScale(1.5)
+        button.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.1)
+        button.zPosition = 2
+        button.delegate = self
         
-        restartLabel = SKLabelNode(fontNamed: "Chalkduster")
-        restartLabel.text = "Tap anywhere to restart"
-        restartLabel.horizontalAlignmentMode = .center
-        restartLabel.fontSize = 15
-        restartLabel.zPosition = 30
-        restartLabel.isHidden = true
-        addChild(restartLabel)
-        restartLabel.position = CGPoint(x: screenWidth/2, y: screenHeight/2-screenHeight/20)
+        let button2 = AboutButton(texture: SKTexture(imageNamed: "button-try-again"))
+        button2.name = "button-try-again"
+        button2.setScale(1.5)
+        button2.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.2)
+        button2.zPosition = 2
+        button2.delegate = self
         
         let fadeIn = SKAction.fadeIn(withDuration: 0.8)
         let fadeOut = SKAction.fadeOut(withDuration: 0.8)
@@ -238,22 +246,61 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             sequence.append(movePlayerAction)
             sequence.append(waitAction)
         }
+        let finish = SKAction.run {
+            
+            print("WINNNN")
+            print("!Solved! after \(algorithm.generationNumber) generations")
+            
+            let title = SKSpriteNode(imageNamed: "you-win.png")
+            title.zPosition = 2
+            title.setScale(2.0)
+            title.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.8)
+            title.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: title.frame.width * 1.25 , height: title.frame.height * 1.25))
+            title.physicsBody?.isDynamic = false
+            self.addChild(title)
+            
+            let button = AboutButton(texture: SKTexture(imageNamed: "button-next-level"))
+            button.name = "button-next-level"
+            button.setScale(1.5)
+            button.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.1)
+            button.zPosition = 2
+            button.delegate = self
+            
+            let button2 = AboutButton(texture: SKTexture(imageNamed: "button-to-menu"))
+            button2.name = "button-to-menu"
+            button2.setScale(1.5)
+            button2.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.2)
+            button2.zPosition = 2
+            button2.delegate = self
+            
+        }
+        sequence.append(finish)
         let actionsSequence = SKAction.sequence(sequence)
-        run(actionsSequence, completion: {
-            if !algorithm.solved {
-                algorithm.runGeneration()
-            } else {
-                print("WINNNN")
-                print("!Solved! after \(algorithm.generationNumber) generations")
-            }
-        })
+        run(actionsSequence)
         
         
     }
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-        
+    
+    }
+    
+}
+
+
+extension GameScene: AboutButtonDelegate {
+    
+    func didTapAbout(sender: AboutButton) {
+        if sender.name == "button-try-again" {
+            reset()
+        } else if sender.name == "button-to-menu" {
+            let transition = SKTransition.crossFade(withDuration: 0)
+            let scene = FirstScene(fileNamed:"FirstScene")
+            scene!.scaleMode = SKSceneScaleMode.aspectFill
+            self.scene!.view?.presentScene(scene!, transition: transition)
+        } else {
+            print("To next level!!")
+        }
     }
     
 }

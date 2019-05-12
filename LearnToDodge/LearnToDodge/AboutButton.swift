@@ -28,8 +28,7 @@ public class AboutButton: SKSpriteNode {
     // MARK: - Initializers
     //------------------------------------
     
-    init() {
-        let texture = SKTexture(imageNamed: "aboutButton")
+    init(texture: SKTexture) {
         
         let color = SKColor.red
         let size = CGSize(width: 120, height: 36)

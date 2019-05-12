@@ -26,39 +26,43 @@ public class FirstScene: SKScene {
     
     public override func didMove(to view: SKView) {
         
-        backgroundColor = UIColor.white
-        if let particles = SKEmitterNode(fileNamed: "Starfield.sks") {
-            particles.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-            addChild(particles)
-        }
-        
-        let gradBackground = SKSpriteNode(imageNamed: "gradBackground.jpg")
-        gradBackground.zPosition = 0
-        gradBackground.position = CGPoint(x: frame.midX, y: frame.midY)
-        addChild(gradBackground)
-        
-        let background = SKSpriteNode(imageNamed: "homeBackground.png")
-        background.name = "background"
-        background.zPosition = 1
-        background.position = CGPoint(x: frame.midX, y: frame.midY)
+        backgroundColor = UIColor.black
+
+        let backgroundTexture = SKTexture(imageNamed: "road")
+        let background = SKSpriteNode(texture: backgroundTexture)
+        background.zPosition = -30
+        background.name = "road"
+        background.size = CGSize(width: screenWidth/2, height: background.size.height)
+        background.anchorPoint = CGPoint.zero
+        background.position = CGPoint(x: screenWidth/4, y: 0)
         addChild(background)
         
         let title = SKSpriteNode(imageNamed: "title.png")
         title.zPosition = 2
-        title.setScale(0.8)
+        title.setScale(0.6)
         title.position = CGPoint(x: frame.midX, y: frame.maxY*0.8)
         title.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: title.frame.width * 1.25 , height: title.frame.height * 1.25))
         title.physicsBody?.isDynamic = false
         addChild(title)
         
-        let button = PlayButton()
-        button.name = "playButton"
+        let subtitle = SKSpriteNode(imageNamed: "subtitle.png")
+        subtitle.zPosition = 2
+        subtitle.setScale(0.55)
+        subtitle.position = CGPoint(x: frame.midX, y: frame.maxY*0.75)
+        subtitle.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: title.frame.width, height: title.frame.height))
+        subtitle.physicsBody?.isDynamic = false
+        addChild(subtitle)
+        
+        let button = AboutButton(texture: SKTexture(imageNamed: "button-play"))
+        button.name = "button-play"
+        button.setScale(1.5)
         button.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.2)
         button.zPosition = 2
         button.delegate = self
         
-        let button2 = AboutButton()
-        button2.name = "aboutButton"
+        let button2 = AboutButton(texture: SKTexture(imageNamed: "button-play2"))
+        button2.name = "button-play2"
+        button2.setScale(1.5)
         button2.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.1)
         button2.zPosition = 2
         button2.alpha = 0
@@ -85,7 +89,7 @@ public class FirstScene: SKScene {
             }
         }
         let stopAction = SKAction.run {
-            if self.children.count > 40 {
+            if self.children.count > 60 {
                 self.removeAllActions()
             }
         }
@@ -124,11 +128,7 @@ extension FirstScene: PlayButtonDelegate {
     
     func didTapPlay(sender: PlayButton) {
         
-        let transition = SKTransition.crossFade(withDuration: 0)
-        let scene1 = GameScene(fileNamed:"GameScene")
-        scene1!.isAutomatic = true
-        scene1!.scaleMode = SKSceneScaleMode.aspectFill
-        self.scene!.view?.presentScene(scene1!, transition: transition)
+        
     }
     
 }
@@ -136,8 +136,15 @@ extension FirstScene: PlayButtonDelegate {
 extension FirstScene: AboutButtonDelegate {
     
     func didTapAbout(sender: AboutButton) {
-        
-        
+        let transition = SKTransition.crossFade(withDuration: 0)
+        let scene1 = GameScene(fileNamed:"GameScene")
+        if sender.name == "button-play" {
+            scene1?.isAutomatic = false
+        } else {
+            scene1?.isAutomatic = true
+        }
+        scene1!.scaleMode = SKSceneScaleMode.aspectFill
+        self.scene!.view?.presentScene(scene1!, transition: transition)
     }
     
 }
