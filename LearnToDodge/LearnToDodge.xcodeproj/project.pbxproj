@@ -25,6 +25,11 @@
 		AAFD572A22877B8B0075ACDB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD572922877B8B0075ACDB /* Extensions.swift */; };
 		AAFD572C22877B920075ACDB /* GeneticAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD572B22877B920075ACDB /* GeneticAlgorithm.swift */; };
 		AAFD572E22878BA40075ACDB /* gameover.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD572D22878BA40075ACDB /* gameover.png */; };
+		AAFD57302287A54A0075ACDB /* FirstScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD572F2287A54A0075ACDB /* FirstScene.swift */; };
+		AAFD57332287A55E0075ACDB /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD57312287A55E0075ACDB /* PlayButton.swift */; };
+		AAFD57342287A55E0075ACDB /* AboutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD57322287A55E0075ACDB /* AboutButton.swift */; };
+		AAFD57362287A6490075ACDB /* FirstScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = AAFD57352287A6490075ACDB /* FirstScene.sks */; };
+		AAFD57382287A7A00075ACDB /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD57372287A79F0075ACDB /* playButton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +53,11 @@
 		AAFD572922877B8B0075ACDB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AAFD572B22877B920075ACDB /* GeneticAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneticAlgorithm.swift; sourceTree = "<group>"; };
 		AAFD572D22878BA40075ACDB /* gameover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameover.png; sourceTree = "<group>"; };
+		AAFD572F2287A54A0075ACDB /* FirstScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstScene.swift; sourceTree = "<group>"; };
+		AAFD57312287A55E0075ACDB /* PlayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
+		AAFD57322287A55E0075ACDB /* AboutButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutButton.swift; sourceTree = "<group>"; };
+		AAFD57352287A6490075ACDB /* FirstScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FirstScene.sks; sourceTree = "<group>"; };
+		AAFD57372287A79F0075ACDB /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playButton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +93,12 @@
 			children = (
 				AAFD56FA22875EFB0075ACDB /* AppDelegate.swift */,
 				AAFD570022875EFB0075ACDB /* GameScene.swift */,
+				AAFD572F2287A54A0075ACDB /* FirstScene.swift */,
+				AAFD57322287A55E0075ACDB /* AboutButton.swift */,
+				AAFD57312287A55E0075ACDB /* PlayButton.swift */,
 				AAFD570222875EFB0075ACDB /* GameViewController.swift */,
 				AAFD5712228766B40075ACDB /* GameScene.sks */,
+				AAFD57352287A6490075ACDB /* FirstScene.sks */,
 				AAFD57142287671B0075ACDB /* Player.swift */,
 				AAFD5716228767750075ACDB /* Score.swift */,
 				AAFD570422875EFB0075ACDB /* Main.storyboard */,
@@ -107,6 +121,7 @@
 				AAFD5723228774E10075ACDB /* yellow-car.png */,
 				AAFD5727228774F20075ACDB /* blue-car.png */,
 				AAFD572D22878BA40075ACDB /* gameover.png */,
+				AAFD57372287A79F0075ACDB /* playButton.png */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -169,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAFD57382287A7A00075ACDB /* playButton.png in Resources */,
 				AAFD5726228774E10075ACDB /* yellow-car.png in Resources */,
 				AAFD5728228774F20075ACDB /* blue-car.png in Resources */,
 				AAFD5719228768870075ACDB /* TurtleImages.atlas in Resources */,
@@ -180,6 +196,7 @@
 				AAFD571E228770120075ACDB /* road.png in Resources */,
 				AAFD5725228774E10075ACDB /* purple-car.png in Resources */,
 				AAFD572E22878BA40075ACDB /* gameover.png in Resources */,
+				AAFD57362287A6490075ACDB /* FirstScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +208,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAFD57152287671B0075ACDB /* Player.swift in Sources */,
+				AAFD57302287A54A0075ACDB /* FirstScene.swift in Sources */,
+				AAFD57332287A55E0075ACDB /* PlayButton.swift in Sources */,
+				AAFD57342287A55E0075ACDB /* AboutButton.swift in Sources */,
 				AAFD572A22877B8B0075ACDB /* Extensions.swift in Sources */,
 				AAFD570122875EFB0075ACDB /* GameScene.swift in Sources */,
 				AAFD570322875EFB0075ACDB /* GameViewController.swift in Sources */,

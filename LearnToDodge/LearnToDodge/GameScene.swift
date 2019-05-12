@@ -64,15 +64,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
         
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
-        swipeLeft.direction = .left
-        self.view?.addGestureRecognizer(swipeLeft)
-        
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
-        swipeRight.direction = .right
-        self.view?.addGestureRecognizer(swipeRight)
-        
-        automaticTraining()
+        if isAutomatic {
+            automaticTraining()
+        } else {
+            let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+            swipeLeft.direction = .left
+            self.view?.addGestureRecognizer(swipeLeft)
+            
+            let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+            swipeRight.direction = .right
+            self.view?.addGestureRecognizer(swipeRight)
+        }
         
     }
     
@@ -110,6 +112,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if canRestart {
             let gameScene: GameScene
             gameScene = GameScene(size: self.view!.bounds.size) // create your new scene
+            if isAutomatic {
+                gameScene.isAutomatic = true
+            }
             let transition = SKTransition.fade(withDuration: 1.0) // create type of transition (you can check in documentation for more transtions)
             gameScene.scaleMode = .aspectFit
             self.view!.presentScene(gameScene, transition: transition)
@@ -209,8 +214,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func automaticTraining() {
-        
-        isAutomatic = true
         
         if algorithm == nil {
             print("Looking for:\t\t \(goal.asBinaryString)")
