@@ -32,7 +32,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var playerPosition: RoadLane = .left
     var scoreLabel = Score()
-    var restartLabel: SKLabelNode!
     
     override func didMove(to view: SKView) {
         scene!.size = view.bounds.size
@@ -147,7 +146,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let carTexture = SKTexture(imageNamed: "pink-car")
         
         let car = SKSpriteNode(texture: carTexture)
-        car.zPosition = 20
+        car.zPosition = 0
         car.zRotation = -CGFloat.pi/2
         car.size = CGSize(width: 60, height: 50)
         car.position = CGPoint(x: screenWidth/4 + 40 + offset.rawValue, y: screenHeight+100)
@@ -185,7 +184,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let title = SKSpriteNode(imageNamed: "oops.png")
         title.zPosition = 2
-        title.setScale(2.0)
+        title.setScale(0.6)
         title.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.8)
         title.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: title.frame.width * 1.25 , height: title.frame.height * 1.25))
         title.physicsBody?.isDynamic = false
@@ -194,24 +193,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let button = AboutButton(texture: SKTexture(imageNamed: "button-to-menu"))
         button.name = "button-to-menu"
         button.setScale(1.5)
-        button.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.1)
+        button.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.2)
         button.zPosition = 2
         button.delegate = self
+        addChild(button)
         
         let button2 = AboutButton(texture: SKTexture(imageNamed: "button-try-again"))
         button2.name = "button-try-again"
         button2.setScale(1.5)
-        button2.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.2)
+        button2.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.3)
         button2.zPosition = 2
         button2.delegate = self
+        addChild(button2)
         
         let fadeIn = SKAction.fadeIn(withDuration: 0.8)
         let fadeOut = SKAction.fadeOut(withDuration: 0.8)
         let wait = SKAction.wait(forDuration: 0.5)
         let seq = SKAction.repeatForever(SKAction.sequence([fadeOut, wait, SKAction.run {
-            self.restartLabel.isHidden = false
+            button2.isHidden = false
             }, fadeIn, wait]))
-        restartLabel.run(seq)
+        button2.run(seq)
         
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(gameCanRestart), userInfo: nil, repeats: false)
         
@@ -253,7 +254,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             let title = SKSpriteNode(imageNamed: "you-win.png")
             title.zPosition = 2
-            title.setScale(2.0)
+            title.setScale(0.6)
             title.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.8)
             title.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: title.frame.width * 1.25 , height: title.frame.height * 1.25))
             title.physicsBody?.isDynamic = false
@@ -262,9 +263,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let button = AboutButton(texture: SKTexture(imageNamed: "button-next-level"))
             button.name = "button-next-level"
             button.setScale(1.5)
-            button.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.1)
+            button.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.3)
             button.zPosition = 2
             button.delegate = self
+            self.addChild(button)
             
             let button2 = AboutButton(texture: SKTexture(imageNamed: "button-to-menu"))
             button2.name = "button-to-menu"
@@ -272,6 +274,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             button2.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.2)
             button2.zPosition = 2
             button2.delegate = self
+            self.addChild(button2)
             
         }
         sequence.append(finish)

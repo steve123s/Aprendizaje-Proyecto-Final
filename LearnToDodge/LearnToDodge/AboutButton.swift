@@ -35,7 +35,7 @@ public class AboutButton: SKSpriteNode {
         super.init(texture: texture, color: color, size: size)
         
         isUserInteractionEnabled = true
-        zPosition = 1
+        zPosition = 10
     }
     
     required public init?(coder aDecoder: NSCoder) {

@@ -55,15 +55,15 @@ public class FirstScene: SKScene {
         
         let button = AboutButton(texture: SKTexture(imageNamed: "button-play"))
         button.name = "button-play"
-        button.setScale(1.5)
-        button.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.2)
+        button.setScale(2)
+        button.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.3)
         button.zPosition = 2
         button.delegate = self
         
         let button2 = AboutButton(texture: SKTexture(imageNamed: "button-play2"))
         button2.name = "button-play2"
-        button2.setScale(1.5)
-        button2.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.1)
+        button2.setScale(2)
+        button2.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.2)
         button2.zPosition = 2
         button2.alpha = 0
         button2.delegate = self
