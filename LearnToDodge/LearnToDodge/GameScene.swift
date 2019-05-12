@@ -12,6 +12,8 @@ import GameplayKit
 let screenWidth = UIScreen.main.bounds.size.width
 let screenHeight = UIScreen.main.bounds.size.height
 
+var algorithm: GeneticAlgorithm!
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     enum RoadLane: CGFloat {
@@ -20,10 +22,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     //let goal: UInt = UInt.subtractWithOverflow(0, 1).0
-    let goal: UInt = 35764
+    let goal: UInt = 467351
     let populationSize = 100
     
     var canRestart = false
+    var isAutomatic = false
     
     var player = Player()
     
@@ -69,6 +72,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         swipeRight.direction = .right
         self.view?.addGestureRecognizer(swipeRight)
         
+        automaticTraining()
+        
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
@@ -99,10 +104,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             player.name = ""
             gameOver()
         }
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
     }
     
     func reset(){
@@ -170,6 +171,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             node.removeAllActions()
         }
         
+        if isAutomatic {
+            algorithm.runGeneration()
+            gameCanRestart()
+            return
+        }
+        
         let background = SKSpriteNode(imageNamed: "gameover")
         background.position = CGPoint(x: screenWidth/2, y: screenHeight/2+screenHeight/10)
         background.zPosition = 30
@@ -199,6 +206,51 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     @objc func gameCanRestart() {
         canRestart = true
+    }
+    
+    func automaticTraining() {
+        
+        isAutomatic = true
+        
+        if algorithm == nil {
+            print("Looking for:\t\t \(goal.asBinaryString)")
+            algorithm = GeneticAlgorithm(numberToSolve: goal, populationSize: populationSize)
+        }
+
+        let bestIndividual = algorithm.population.first!
+        let fitness = bestIndividual.fitness(towards: goal)
+        let fitnessPercentage = Int(Double(fitness) / Double(UInt.numberOfBits) * 100)
+        
+        print("Fittest individual:\t \(bestIndividual.number.asBinaryString) (fitness: \(fitnessPercentage)%)")
+        
+        // Move player
+        var sequence: [SKAction] = []
+        let initialWait = SKAction.wait(forDuration: 3)
+        sequence.append(initialWait)
+        for bit in bestIndividual.number.bits.reversed() {
+            let movePlayerAction = SKAction.run {
+                bit == false ? self.movePlayer(toLane: .right) : self.movePlayer(toLane: .left)
+            }
+            let waitAction = SKAction.wait(forDuration: 1)
+            sequence.append(movePlayerAction)
+            sequence.append(waitAction)
+        }
+        let actionsSequence = SKAction.sequence(sequence)
+        run(actionsSequence, completion: {
+            if !algorithm.solved {
+                algorithm.runGeneration()
+            } else {
+                print("WINNNN")
+                print("!Solved! after \(algorithm.generationNumber) generations")
+            }
+        })
+        
+        
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        // Called before each frame is rendered
+        
     }
     
 }
