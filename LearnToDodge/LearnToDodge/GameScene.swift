@@ -22,13 +22,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     //let goal: UInt16 = UInt16.subtractWithOverflow(0, 1).0
-    let goal: UInt16 = 7351
+    var goal: UInt16 = 7351
     let populationSize = 100
     
     var canRestart = false
     var isAutomatic = false
     
     var player = Player()
+    
+    var level: Double = 0.0
+    var difficultyMultiplier: Double = 1
     
     var playerPosition: RoadLane = .left
     var scoreLabel = Score()
@@ -37,8 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scene!.size = view.bounds.size
         backgroundColor = UIColor.init(hue: 0.58, saturation: 0.63, brightness: 0.35, alpha: 1)
         
-        player = Player()
-        scoreLabel = Score()
+        difficultyMultiplier = 1 - (level * 0.1)
         
         createBackground()
         
@@ -48,17 +50,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let placeCarAction = SKAction.run {
                 bit == false ? self.createCar(inLane: .left) : self.createCar(inLane: .right)
             }
-            let waitAction = SKAction.wait(forDuration: 1)
+            let waitAction = SKAction.wait(forDuration: 1.0 * difficultyMultiplier)
             sequence.append(placeCarAction)
             sequence.append(waitAction)
         }
+        
+        sequence.append(SKAction.wait(forDuration: 3))
+        let finish = SKAction.run {
+            self.levelWon()
+        }
+        sequence.append(finish)
+        
         let actionsSequence = SKAction.sequence(sequence)
         run(actionsSequence)
         
         addChild(player)
         addChild(scoreLabel)
-        
-        scoreLabel.score = 0
         
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
@@ -110,11 +117,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func reset(){
         if canRestart {
             let gameScene: GameScene
-            gameScene = GameScene(size: self.view!.bounds.size) // create your new scene
-            if isAutomatic {
-                gameScene.isAutomatic = true
-            }
-            let transition = SKTransition.fade(withDuration: 1.0) // create type of transition (you can check in documentation for more transtions)
+            gameScene = GameScene(size: self.view!.bounds.size)
+            gameScene.isAutomatic = isAutomatic ? true : false
+            gameScene.level = level
+            gameScene.scoreLabel.score = Int(level) + 1
+            gameScene.goal = goal
+            let transition = SKTransition.fade(withDuration: 1.0)
             gameScene.scaleMode = .aspectFit
             self.view!.presentScene(gameScene, transition: transition)
         }
@@ -237,55 +245,78 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Move player
         var sequence: [SKAction] = []
-        let initialWait = SKAction.wait(forDuration: 3)
+        let initialWait = SKAction.wait(forDuration: 3.2)
         sequence.append(initialWait)
+        
         for bit in bestIndividual.number.bits.reversed() {
             let movePlayerAction = SKAction.run {
                 bit == false ? self.movePlayer(toLane: .right) : self.movePlayer(toLane: .left)
             }
-            let waitAction = SKAction.wait(forDuration: 1)
+            let waitAction = SKAction.wait(forDuration: 1.0 * difficultyMultiplier)
             sequence.append(movePlayerAction)
             sequence.append(waitAction)
         }
+        
         let finish = SKAction.run {
-            
-            print("WINNNN")
-            print("!Solved! after \(algorithm.generationNumber) generations")
-            
-            let title = SKSpriteNode(imageNamed: "you-win.png")
-            title.zPosition = 2
-            title.setScale(0.6)
-            title.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.8)
-            title.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: title.frame.width * 1.25 , height: title.frame.height * 1.25))
-            title.physicsBody?.isDynamic = false
-            self.addChild(title)
-            
-            let button = AboutButton(texture: SKTexture(imageNamed: "button-next-level"))
-            button.name = "button-next-level"
-            button.setScale(1.5)
-            button.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.3)
-            button.zPosition = 2
-            button.delegate = self
-            self.addChild(button)
-            
-            let button2 = AboutButton(texture: SKTexture(imageNamed: "button-to-menu"))
-            button2.name = "button-to-menu"
-            button2.setScale(1.5)
-            button2.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.2)
-            button2.zPosition = 2
-            button2.delegate = self
-            self.addChild(button2)
-            
+            self.levelWon()
         }
+        
         sequence.append(finish)
         let actionsSequence = SKAction.sequence(sequence)
         run(actionsSequence)
-        
         
     }
     
     override func update(_ currentTime: TimeInterval) {
     
+    }
+ 
+    func levelWon() {
+        
+        print("WINNNN")
+        
+        if let algorithm = algorithm {
+            print("!Solved! after \(algorithm.generationNumber) generations")
+        }
+        
+        let title = SKSpriteNode(imageNamed: "you-win.png")
+        title.zPosition = 2
+        title.setScale(0.6)
+        title.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.8)
+        title.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: title.frame.width * 1.25 , height: title.frame.height * 1.25))
+        title.physicsBody?.isDynamic = false
+        self.addChild(title)
+        
+        let button = AboutButton(texture: SKTexture(imageNamed: "button-next-level"))
+        button.name = "button-next-level"
+        button.setScale(1.5)
+        button.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.3)
+        button.zPosition = 2
+        button.delegate = self
+        self.addChild(button)
+        
+        let button2 = AboutButton(texture: SKTexture(imageNamed: "button-to-menu"))
+        button2.name = "button-to-menu"
+        button2.setScale(1.5)
+        button2.position = CGPoint(x: self.frame.midX, y: self.frame.maxY*0.2)
+        button2.zPosition = 2
+        button2.delegate = self
+        self.addChild(button2)
+        
+    }
+    
+    func moveToNextLevel() {
+        
+        let transition = SKTransition.crossFade(withDuration: 0)
+        let scene = GameScene(fileNamed:"GameScene")
+        scene!.scaleMode = SKSceneScaleMode.aspectFill
+        scene!.level = level + 1
+        scene!.isAutomatic = isAutomatic ? true : false
+        scene!.scoreLabel.score = Int(level) + 2
+        scene!.goal = UInt16.random(in: 0...UInt16.max)
+        algorithm = nil
+        self.scene!.view?.presentScene(scene!, transition: transition)
+        
     }
     
 }
@@ -302,7 +333,7 @@ extension GameScene: AboutButtonDelegate {
             scene!.scaleMode = SKSceneScaleMode.aspectFill
             self.scene!.view?.presentScene(scene!, transition: transition)
         } else {
-            print("To next level!!")
+            moveToNextLevel()
         }
     }
     

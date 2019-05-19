@@ -143,6 +143,7 @@ extension FirstScene: AboutButtonDelegate {
         } else {
             scene1?.isAutomatic = true
         }
+        scene1!.goal = UInt16.random(in: 0...UInt16.max)
         scene1!.scaleMode = SKSceneScaleMode.aspectFill
         self.scene!.view?.presentScene(scene1!, transition: transition)
     }

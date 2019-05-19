@@ -15,18 +15,18 @@ class Score: SKLabelNode {
         super.init()
         self.fontName = "Chalkduster"
         self.name = "scoreLabel"
-        self.position = CGPoint(x: 16, y: screenHeight - 100)
+        self.position = CGPoint(x: 16, y: screenHeight - 50)
         self.horizontalAlignmentMode = .left
+        self.text = "Level \(score)"
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    
-    var score = 0 {
+    var score = 1 {
         didSet {
-            self.text = "Score: \(score)"
+            self.text = "Level \(score)"
         }
     }
     
