@@ -18,8 +18,6 @@ public class FirstScene: SKScene {
     
     let emojis: [String] = ["🚗","🚕","🚙","🚐","🚚"]
     
-    private var label : SKLabelNode!
-    
     //------------------------------------
     // MARK: - didMove
     //------------------------------------
@@ -124,28 +122,19 @@ public class FirstScene: SKScene {
 // MARK: - Extensions
 //------------------------------------
 
-extension FirstScene: PlayButtonDelegate {
-    
-    func didTapPlay(sender: PlayButton) {
-        
-        
-    }
-    
-}
-
 extension FirstScene: AboutButtonDelegate {
     
     func didTapAbout(sender: AboutButton) {
         let transition = SKTransition.crossFade(withDuration: 0)
-        let scene1 = GameScene(fileNamed:"GameScene")
+        let scene = GameScene(fileNamed:"GameScene")
         if sender.name == "button-play" {
-            scene1?.isAutomatic = false
+            scene?.isAutomatic = false
         } else {
-            scene1?.isAutomatic = true
+            scene?.isAutomatic = true
         }
-        scene1!.goal = UInt16.random(in: 0...UInt16.max)
-        scene1!.scaleMode = SKSceneScaleMode.aspectFill
-        self.scene!.view?.presentScene(scene1!, transition: transition)
+        scene!.goal = UInt16.random(in: 0...UInt16.max)
+        scene!.scaleMode = SKSceneScaleMode.aspectFill
+        self.scene!.view?.presentScene(scene!, transition: transition)
     }
     
 }

@@ -23,7 +23,6 @@
 		AAFD572A22877B8B0075ACDB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD572922877B8B0075ACDB /* Extensions.swift */; };
 		AAFD572C22877B920075ACDB /* GeneticAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD572B22877B920075ACDB /* GeneticAlgorithm.swift */; };
 		AAFD57302287A54A0075ACDB /* FirstScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD572F2287A54A0075ACDB /* FirstScene.swift */; };
-		AAFD57332287A55E0075ACDB /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD57312287A55E0075ACDB /* PlayButton.swift */; };
 		AAFD57342287A55E0075ACDB /* AboutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD57322287A55E0075ACDB /* AboutButton.swift */; };
 		AAFD57362287A6490075ACDB /* FirstScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = AAFD57352287A6490075ACDB /* FirstScene.sks */; };
 		AAFD573F2287BD710075ACDB /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = AAFD57392287BD710075ACDB /* title.png */; };
@@ -58,7 +57,6 @@
 		AAFD572922877B8B0075ACDB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AAFD572B22877B920075ACDB /* GeneticAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneticAlgorithm.swift; sourceTree = "<group>"; };
 		AAFD572F2287A54A0075ACDB /* FirstScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstScene.swift; sourceTree = "<group>"; };
-		AAFD57312287A55E0075ACDB /* PlayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		AAFD57322287A55E0075ACDB /* AboutButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutButton.swift; sourceTree = "<group>"; };
 		AAFD57352287A6490075ACDB /* FirstScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FirstScene.sks; sourceTree = "<group>"; };
 		AAFD57392287BD710075ACDB /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				AAFD570022875EFB0075ACDB /* GameScene.swift */,
 				AAFD572F2287A54A0075ACDB /* FirstScene.swift */,
 				AAFD57322287A55E0075ACDB /* AboutButton.swift */,
-				AAFD57312287A55E0075ACDB /* PlayButton.swift */,
 				AAFD570222875EFB0075ACDB /* GameViewController.swift */,
 				AAFD5712228766B40075ACDB /* GameScene.sks */,
 				AAFD57352287A6490075ACDB /* FirstScene.sks */,
@@ -237,7 +234,6 @@
 			files = (
 				AAFD57152287671B0075ACDB /* Player.swift in Sources */,
 				AAFD57302287A54A0075ACDB /* FirstScene.swift in Sources */,
-				AAFD57332287A55E0075ACDB /* PlayButton.swift in Sources */,
 				AAFD57342287A55E0075ACDB /* AboutButton.swift in Sources */,
 				AAFD572A22877B8B0075ACDB /* Extensions.swift in Sources */,
 				AAFD570122875EFB0075ACDB /* GameScene.swift in Sources */,

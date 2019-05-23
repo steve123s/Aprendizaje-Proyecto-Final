@@ -1,3 +1,11 @@
+//
+//  Extensions.swift
+//  LearnToDodge
+//
+//  Created by Daniel Salinas on 5/11/19.
+//  Copyright © 2019 DanielSteven. All rights reserved.
+//
+
 import Foundation
 
 extension UInt16 {

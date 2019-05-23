@@ -16,10 +16,18 @@ var algorithm: GeneticAlgorithm!
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    //------------------------------------
+    // MARK: - Enums
+    //------------------------------------
+    
     enum RoadLane: CGFloat {
         case left = 0
         case right = 75
     }
+    
+    //------------------------------------
+    // MARK: - Properties
+    //------------------------------------
     
     //let goal: UInt16 = UInt16.subtractWithOverflow(0, 1).0
     var goal: UInt16 = 7351
@@ -35,6 +43,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var playerPosition: RoadLane = .left
     var scoreLabel = Score()
+    
+    //------------------------------------
+    // MARK: - Overloaded Methods
+    //------------------------------------
     
     override func didMove(to view: SKView) {
         scene!.size = view.bounds.size
@@ -84,7 +96,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+    //------------------------------------
+    // MARK: - Handlers
+    //------------------------------------
+    
+    @objc private func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == UISwipeGestureRecognizer.Direction.right {
             if playerPosition == .left {
                 movePlayer(toLane: .right)
@@ -99,9 +115,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func movePlayer(toLane offset: RoadLane) {
+    @objc private func gameCanRestart() {
+        canRestart = true
+    }
+    
+    private func movePlayer(toLane offset: RoadLane) {
         player.position = CGPoint(x: screenWidth/4 + 45 + offset.rawValue, y: screenHeight/10)
     }
+    
+    //------------------------------------
+    // MARK: - Physics
+    //------------------------------------
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         reset()
@@ -113,20 +137,59 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gameOver()
         }
     }
+ 
+}
+
+//------------------------------------
+// MARK: - Genetic Extension
+//------------------------------------
+
+private extension GameScene {
     
-    func reset(){
-        if canRestart {
-            let gameScene: GameScene
-            gameScene = GameScene(size: self.view!.bounds.size)
-            gameScene.isAutomatic = isAutomatic ? true : false
-            gameScene.level = level
-            gameScene.scoreLabel.score = Int(level) + 1
-            gameScene.goal = goal
-            let transition = SKTransition.fade(withDuration: 1.0)
-            gameScene.scaleMode = .aspectFit
-            self.view!.presentScene(gameScene, transition: transition)
+    func automaticTraining() {
+        
+        if algorithm == nil {
+            print("Looking for:\t\t \(goal.asBinaryString)")
+            algorithm = GeneticAlgorithm(numberToSolve: goal, populationSize: populationSize)
         }
+        
+        let bestIndividual = algorithm.population.first!
+        let fitness = bestIndividual.fitness(towards: goal)
+        let fitnessPercentage = Int(Double(fitness) / 16 * 100)
+        
+        print("Fittest individual:\t \(bestIndividual.number.asBinaryString) (fitness: \(fitnessPercentage)%)")
+        
+        // Move player
+        var sequence: [SKAction] = []
+        let initialWait = SKAction.wait(forDuration: 3.2)
+        sequence.append(initialWait)
+        
+        for bit in bestIndividual.number.bits.reversed() {
+            let movePlayerAction = SKAction.run {
+                bit == false ? self.movePlayer(toLane: .right) : self.movePlayer(toLane: .left)
+            }
+            let waitAction = SKAction.wait(forDuration: 1.0 * difficultyMultiplier)
+            sequence.append(movePlayerAction)
+            sequence.append(waitAction)
+        }
+        
+        let finish = SKAction.run {
+            self.levelWon()
+        }
+        
+        sequence.append(finish)
+        let actionsSequence = SKAction.sequence(sequence)
+        run(actionsSequence)
+        
     }
+    
+}
+
+//------------------------------------
+// MARK: - Gameplay Extension
+//------------------------------------
+
+private extension GameScene {
     
     func createBackground() {
         let backgroundTexture = SKTexture(imageNamed: "road")
@@ -160,7 +223,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         car.position = CGPoint(x: screenWidth/4 + 40 + offset.rawValue, y: screenHeight+100)
         
         car.physicsBody = SKPhysicsBody(texture: carTexture, size: CGSize(width: 40, height: 50))
-
+        
         addChild(car)
         
         let moveDown = SKAction.moveBy(x: 0, y: -screenHeight*1.2, duration: 4)
@@ -226,52 +289,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    @objc func gameCanRestart() {
-        canRestart = true
+    func reset(){
+        if canRestart {
+            let gameScene: GameScene
+            gameScene = GameScene(size: self.view!.bounds.size)
+            gameScene.isAutomatic = isAutomatic ? true : false
+            gameScene.level = level
+            gameScene.scoreLabel.score = Int(level) + 1
+            gameScene.goal = goal
+            let transition = SKTransition.fade(withDuration: 1.0)
+            gameScene.scaleMode = .aspectFit
+            self.view!.presentScene(gameScene, transition: transition)
+        }
     }
     
-    func automaticTraining() {
-        
-        if algorithm == nil {
-            print("Looking for:\t\t \(goal.asBinaryString)")
-            algorithm = GeneticAlgorithm(numberToSolve: goal, populationSize: populationSize)
-        }
-
-        let bestIndividual = algorithm.population.first!
-        let fitness = bestIndividual.fitness(towards: goal)
-        let fitnessPercentage = Int(Double(fitness) / 16 * 100)
-        
-        print("Fittest individual:\t \(bestIndividual.number.asBinaryString) (fitness: \(fitnessPercentage)%)")
-        
-        // Move player
-        var sequence: [SKAction] = []
-        let initialWait = SKAction.wait(forDuration: 3.2)
-        sequence.append(initialWait)
-        
-        for bit in bestIndividual.number.bits.reversed() {
-            let movePlayerAction = SKAction.run {
-                bit == false ? self.movePlayer(toLane: .right) : self.movePlayer(toLane: .left)
-            }
-            let waitAction = SKAction.wait(forDuration: 1.0 * difficultyMultiplier)
-            sequence.append(movePlayerAction)
-            sequence.append(waitAction)
-        }
-        
-        let finish = SKAction.run {
-            self.levelWon()
-        }
-        
-        sequence.append(finish)
-        let actionsSequence = SKAction.sequence(sequence)
-        run(actionsSequence)
-        
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
-    
-    }
- 
-    func levelWon() {
+     func levelWon() {
         
         print("WINNNN")
         
@@ -321,6 +353,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
 }
 
+//------------------------------------
+// MARK: - Button Extensions
+//------------------------------------
 
 extension GameScene: AboutButtonDelegate {
     
